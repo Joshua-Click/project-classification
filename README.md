@@ -25,6 +25,30 @@ so first split between churned and not churned
 * Explore
     * What features did the customers who churned had or didn't have
     * What features do long term customers have 
+    * List of Potential churn items From a simple barchart (No = Not alot of diff between yes & no categories on churn)
+        * Gender - No
+        * Senior Citizen - 
+                Maybe(closer to death, makes sense)
+        * Partner - Maybe(leaning No)
+        * Dependents - Maybe(leaning No)
+        * Phone Service - No
+        * Multiple Lines - No
+        * Online Security - Maybe
+                Customers who did NOT have Sec More Likely to churn.
+        * Online backup - Maybe
+                Customers who did NOT have Sec More Likely to churn.
+        * Device Protection - Maybe
+                Customers who did NOT have Sec More Likely to churn.
+        * Tech Support - Maybe
+                Customers who did NOT have Sec More Likely to churn.
+        * Streaming TV - No
+        * Streaming Movies - No
+        * Paperless Billing - ?? No..
+        * Contract Type - Def b/c mo-2-mo
+        * Internet Service Type - Maybe 
+                (Fiber optic 40% churn compared to 20% DSL)
+        * Payment Type - Maybe
+                (Electric Check shows about 50% churn compared to the other 3 forms of payment)
     
 * Modeling
     * What model do I need
