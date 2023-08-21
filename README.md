@@ -1,18 +1,37 @@
-#Telco Project
+# Telco Project
 
-#Project Description
-
-
-Project Goal
+# Project Description
 
 
-Initial Thoughts
+# Project Goal
+Discover which customers are more likely to churn based of the different features
+Use machine learning model to classify customers likely to churn
 
 
-The Plan
+# Initial Thoughts
+
+Need to figure out what features will lead me to the most churn based off the customers who have churned
+Need to see the features that customers have that havent churned yet
+so first split between churned and not churned
 
 
-Data Dictionary
+# The Plan
+* Acquire data from sql
+* Prepare Data
+    * Drop unnecessary columns(Update list here)
+    * Clean up the number values
+    * Create Dummies for the features used in the future
+
+* Explore
+    * What features did the customers who churned had or didn't have
+    * What features do long term customers have 
+    
+* Modeling
+    * What model do I need
+
+* Draw Conclusions
+
+# Data Dictionary
 
 Features | Definition
 payment_type_id : Will drop (Duplicates payment_type)
@@ -40,10 +59,10 @@ contract_type : Type of contract (One Year, Month-to-Month, Two Year)
 internet_service_type : Type of internet service the customer has (DSL, Fiber optic, No)
 payment_type : The customer's payment method (Electronic check, Mailed check, Bank transfer (automatic), Credit Card (automatic))
 
-How to Reproduce
+# How to Reproduce
 
 
-Takeaways and Conclusions
+# Takeaways and Conclusions
 
 
-Recommendations
+# Recommendations
