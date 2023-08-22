@@ -7,9 +7,32 @@ import seaborn as sns
 import pandas as pd
 from scipy import stats
 
+def clean_telco(telco_df):
+    '''USE THIS FOR INITIAL CLEAN - Cleans the telco dataset for exploring
+    leaving the booleans and cleaning null values and dropping dup columns
+    
+    arguments: telco_df
+    
+    return: a clean dataframe ready to explore'''
 
+    # drop duplicate columns and customer_id for view
+    telco_df = telco_df.drop(columns =['payment_type_id','internet_service_type_id','contract_type_id', 'customer_id'])
+    # fill nulls and change total_charges to float
+    telco_df.total_charges = telco_df.total_charges.str.replace(' ', '0').astype(float)
+    # drops (automatic) from the payment_type
+    telco_df['payment_type'] = telco_df['payment_type'].str.replace(' (automatic)', '')
+
+    return telco_df
 
 def prep_telco(telco_df):
+    '''USE THIS BEFORE MODELING - Preps the telco dataset for machine learning modeling by dropping unnessesary columns
+    creating dummy values, and replacing null values in total_charges, keeps customer_id
+    
+    arguments: telco_df
+    
+    return: a dataframe ready for machine learning'''
+
+
     #drop duplicate columns
     telco_df = telco_df.drop(columns =['payment_type_id','internet_service_type_id','contract_type_id'])
     #create dummies
@@ -28,11 +51,13 @@ def prep_telco(telco_df):
 
 def split_telco_data(df, target):
     '''
-    split telco data will split data based on 
-    the values present in a cleaned version of titanic
-    that is from clean_titanic
-    
+    split telco data into train, validate, test
+
+    argument: df, target variable
+
+    return: train, validate, test
     '''
+
     train_val, test = train_test_split(df,
                                    train_size=0.8,
                                    random_state=1108,
@@ -45,7 +70,7 @@ def split_telco_data(df, target):
     print(f'Train: {len(train)/len(df)}')
     print(f'Validate: {len(validate)/len(df)}')
     print(f'Test: {len(test)/len(df)}')
-    
+
     return train, validate, test
 
 
