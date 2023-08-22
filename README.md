@@ -35,23 +35,38 @@ so first split between churned and not churned
         * Multiple Lines - No
         * Online Security - Maybe
                 Customers who did NOT have Sec More Likely to churn.
+                chi test ran
         * Online backup - Maybe
-                Customers who did NOT have Sec More Likely to churn.
+                Customers who did NOT have online backup More Likely to churn?
+                chitest ran
         * Device Protection - Maybe
-                Customers who did NOT have Sec More Likely to churn.
+                Customers who did NOT have device protection More Likely to churn?
+                chi test ran
         * Tech Support - Maybe
-                Customers who did NOT have Sec More Likely to churn.
+                Customers who did NOT have tech support More Likely to churn?
+                chi test ran
         * Streaming TV - No
         * Streaming Movies - No
         * Paperless Billing - ?? No..
         * Contract Type - Def b/c mo-2-mo
         * Internet Service Type - Maybe 
                 (Fiber optic 40% churn compared to 20% DSL)
+                More likely to churn if you have fiber?
+                chi test ran
+
         * Payment Type - Maybe
                 (Electric Check shows about 50% churn compared to the other 3 forms of payment)
     
 * Modeling
     * What model do I need
+    Ran Decision Tree
+
+    Ran Random Forest
+
+    Ran KNN
+
+    Ran Logistic Regression wiht all feats
+    
 
 * Draw Conclusions
 
