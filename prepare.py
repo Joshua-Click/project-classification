@@ -32,19 +32,20 @@ def prep_telco(telco_df):
     
     return: a dataframe ready for machine learning'''
 
-
+    telco_df.set_index('customer_id', inplace=True)
     #drop duplicate columns
-    telco_df = telco_df.drop(columns =['payment_type_id','internet_service_type_id','contract_type_id'])
+    telco_df = telco_df.drop(columns =['payment_type_id','internet_service_type_id','contract_type_id', 'gender', 'partner', 'dependents', 'phone_service', 'multiple_lines', 'paperless_billing', 'streaming_tv', 'streaming_movies'])
     #create dummies
-    dummy_list = ['gender','partner', 'dependents', 'phone_service', 'multiple_lines', 'online_security', 'online_backup', 'device_protection', 'tech_support', 'streaming_tv', 'streaming_movies', 'paperless_billing', 'churn', 'contract_type', 'internet_service_type', 'payment_type']
+    dummy_list = ['online_security', 'online_backup', 'device_protection', 'tech_support', 'churn', 'contract_type', 'internet_service_type', 'payment_type']
     dummy_df = pd.get_dummies(telco_df[dummy_list], dtype=int, drop_first=True)
     # join dummy & telco_df
     telco_df = pd.concat([telco_df, dummy_df], axis=1)
     # drop str column categories
-    cols_to_drop = ['gender','partner', 'dependents', 'phone_service', 'multiple_lines', 'online_security', 'online_backup', 'device_protection', 'tech_support', 'streaming_tv', 'streaming_movies', 'paperless_billing', 'churn', 'contract_type', 'internet_service_type', 'payment_type']
+    cols_to_drop = ['online_security', 'online_backup', 'device_protection', 'tech_support', 'churn', 'contract_type', 'internet_service_type', 'payment_type']
     telco_df = telco_df.drop(columns= cols_to_drop)
     #total_charges.str.replace(' ', '0').astype(float)
     telco_df.total_charges = telco_df.total_charges.str.replace(' ', '0').astype(float)
+    
 
     return telco_df
 
@@ -70,7 +71,24 @@ def split_telco_data(df, target):
     print(f'Train: {len(train)/len(df)}')
     print(f'Validate: {len(validate)/len(df)}')
     print(f'Test: {len(test)/len(df)}')
+    
 
     return train, validate, test
 
+
+def next_split(train, validate, test):
+
+    X_train = train.drop(columns=['churn_Yes', 'senior_citizen'])
+
+    X_validate = validate.drop(columns=['churn_Yes', 'senior_citizen'])
+
+    X_test = test.drop(columns=['churn_Yes', 'senior_citizen'])
+
+    y_train = train['churn_Yes']
+
+    y_validate = validate['churn_Yes'] 
+
+    y_test = test['churn_Yes']
+
+    return X_train, X_validate, X_test, y_train, y_validate, y_test
 
