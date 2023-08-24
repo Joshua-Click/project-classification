@@ -37,7 +37,7 @@ Need to figure out what features will lead me to the most churn based off the cu
 ## Data Dictionary
 
 | Feature | Definition |<br>
-|--------|-----------|<br>
+|:--------|:-----------|<br>
 |Customer ID| Customer's unique identifier|<br>
 |Gender| Customer's gender|<br>
 |Senior_Citizen| Whether the customer is a senior citizen or not|<br>
