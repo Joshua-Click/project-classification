@@ -8,6 +8,38 @@ import pandas as pd
 from scipy import stats
 
 
+def plot_churn_overall(df):
+    '''plots the overall churn responses
+    
+    argument: telco_df
+    
+    return: a bargraph'''
+    # create a figure
+    fig = plt.figure(figsize=(12, 6)) 
+    ax = fig.add_subplot(111)
+
+    # proportion of observation of each class
+    prop_response = df['churn'].value_counts(normalize=True)
+
+    # create a bar plot showing the percentage of churn
+    prop_response.plot(kind='bar', 
+                    ax=ax,
+                    color= ['#1f77b4', '#ff7f0e'])
+
+
+    # set title and labels
+    ax.set_title('Proportion of observations of the response variable',
+                fontsize=18)
+    ax.set_xlabel('churn',
+                fontsize=14)
+    ax.set_ylabel('proportion of observations',
+                fontsize=14)
+    ax.tick_params(rotation='auto')
+
+    # eliminate the frame from the plot
+    spine_names = ('top', 'right', 'bottom', 'left')
+    for spine_name in spine_names:
+        ax.spines[spine_name].set_visible(False)
 
 def column_split(df):
     '''Takes the qualitative and quantitative columns and splits them

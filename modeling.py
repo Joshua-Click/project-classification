@@ -23,6 +23,12 @@ import explore
 
 
 def rforest(X_train, X_validate, y_train, y_validate):
+    '''This function runs multiple random forest models up to 10 max depth and 10 min samples
+    and provides them in a dataframe
+    
+    arguments: X_train, X_validate, y_train, y_validate 
+    
+    returns a pandas dataframe'''
 
     scores_all = []
 
@@ -46,6 +52,12 @@ def rforest(X_train, X_validate, y_train, y_validate):
     return scores_df
 
 def plotForest(scores_df):  
+    '''graphs the random forest models from rforest function
+    
+    arguments: scores_df
+    
+    returns a matplotlib visual'''
+
     plt.figure(figsize=(12,6))
     plt.plot(scores_df.max_depth, scores_df.train_acc, label='train', marker='o')
     plt.plot(scores_df.max_depth, scores_df.val_acc, label='validate', marker='o')
@@ -62,6 +74,7 @@ def plotForest(scores_df):
     plt.show()
 
 def get_knn(X_train, X_validate, y_train, y_validate):
+    ''''''
     k_range = range(1, 20)
     train_scores = []
     validate_scores = []

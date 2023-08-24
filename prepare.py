@@ -77,6 +77,12 @@ def split_telco_data(df, target):
 
 
 def next_split(train, validate, test):
+    '''This function creates your modeling variables with the train, validate, test 
+    sets and returns them
+    
+    argument: train, validate, test
+    
+    return: X_train, X_validate, X_test, y_train, y_validate, y_test'''
 
     X_train = train.drop(columns=['churn_Yes', 'senior_citizen'])
 
