@@ -36,20 +36,20 @@ Need to figure out what features will lead me to the most churn based off the cu
 
 ## Data Dictionary
 
-    | Feature | Definition |
-|--------|-----------|
-|Customer ID| Customer's unique identifier|
-|Gender| Customer's gender|
-|Senior_Citizen| Whether the customer is a senior citizen or not|
-|Partner| Whether the customer has a partner or not|
-|Dependents| Whether the customer has dependents or not|
-|Tenure| Number of months customer has been with company in whole numbers|
-|Online Security| OnlineSecurity: Whether the customer has online security or not|
-|Online Backup| Whether the customer has online backup or not|
-|Device Protection| Whether the customer has device protection or not|
-|Tech Support| Whether the client has tech support or not|
-|Churn| Has the customer churned|
-|Additional Features| Encoded and values for categorical data and scaled versions continuous data|
+| Feature | Definition |<br>
+|--------|-----------|<br>
+|Customer ID| Customer's unique identifier|<br>
+|Gender| Customer's gender|<br>
+|Senior_Citizen| Whether the customer is a senior citizen or not|<br>
+|Partner| Whether the customer has a partner or not|<br>
+|Dependents| Whether the customer has dependents or not|<br>
+|Tenure| Number of months customer has been with company in whole numbers|<br>
+|Online Security| OnlineSecurity: Whether the customer has online security or not|<br>
+|Online Backup| Whether the customer has online backup or not|<br>
+|Device Protection| Whether the customer has device protection or not|<br>
+|Tech Support| Whether the client has tech support or not|<br>
+|Churn| Has the customer churned|<br>
+|Additional Features| Encoded and values for categorical data and scaled versions continuous data|<br>
 
 ## How to Reproduce
 
