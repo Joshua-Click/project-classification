@@ -1,107 +1,74 @@
 # Telco Project
 
-# Project Description
+## Project Description
+* This project uses the telco data set from MySql and is used for practice on figuring out why customers are churning using the data science pipeline.
 
+## Project Goal
+* Discover which customers are more likely to churn based of the different features
+Use machine learning model to classify customers likely to churn.
 
-# Project Goal
-Discover which customers are more likely to churn based of the different features
-Use machine learning model to classify customers likely to churn
+## Initial Thoughts
 
+Need to figure out what features will lead me to the most churn based off the customers who have churned and create/fit a model that will find probable churn.
 
-# Initial Thoughts
+## The Plan
 
-Need to figure out what features will lead me to the most churn based off the customers who have churned
-Need to see the features that customers have that havent churned yet
-so first split between churned and not churned
-
-
-# The Plan
 * Acquire data from sql
+
 * Prepare Data
+
     * Drop unnecessary columns(Update list here)
     * Clean up the number values
-    * Create Dummies for the features used in the future
+    * Encode values for the features used in the future
 
 * Explore
+
     * What features did the customers who churned had or didn't have
     * What features do long term customers have 
-    * List of Potential churn items From a simple barchart (No = Not alot of diff between yes & no categories on churn)
-        * Gender - No
-        * Senior Citizen - 
-                Maybe(closer to death, makes sense)
-        * Partner - Maybe(leaning No)
-        * Dependents - Maybe(leaning No)
-        * Phone Service - No
-        * Multiple Lines - No
-        * Online Security - Maybe
-                Customers who did NOT have Sec More Likely to churn.
-                chi test ran
-        * Online backup - Maybe
-                Customers who did NOT have online backup More Likely to churn?
-                chitest ran
-        * Device Protection - Maybe
-                Customers who did NOT have device protection More Likely to churn?
-                chi test ran
-        * Tech Support - Maybe
-                Customers who did NOT have tech support More Likely to churn?
-                chi test ran
-        * Streaming TV - No
-        * Streaming Movies - No
-        * Paperless Billing - ?? No..
-        * Contract Type - Def b/c mo-2-mo
-        * Internet Service Type - Maybe 
-                (Fiber optic 40% churn compared to 20% DSL)
-                More likely to churn if you have fiber?
-                chi test ran
+    * List of Potential churn items From a simple barchart 
 
-        * Payment Type - Maybe
-                (Electric Check shows about 50% churn compared to the other 3 forms of payment)
-    
 * Modeling
-    * What model do I need
-    Ran Decision Tree
 
-    Ran Random Forest
+    * Use drivers in explore to build predictive models of different types
+    * Evaluate models on train and validate data
+    * Select the berst model based on accuracy
+    * Evaluate the test data
 
-    Ran KNN
+## Data Dictionary
 
-    Ran Logistic Regression wiht all feats
-    
+    | Feature | Definition |
+|--------|-----------|
+|Customer ID| Customer's unique identifier|
+|Gender| Customer's gender|
+|Senior_Citizen| Whether the customer is a senior citizen or not|
+|Partner| Whether the customer has a partner or not|
+|Dependents| Whether the customer has dependents or not|
+|Tenure| Number of months customer has been with company in whole numbers|
+|Online Security| OnlineSecurity: Whether the customer has online security or not|
+|Online Backup| Whether the customer has online backup or not|
+|Device Protection| Whether the customer has device protection or not|
+|Tech Support| Whether the client has tech support or not|
+|Churn| Has the customer churned|
+|Additional Features| Encoded and values for categorical data and scaled versions continuous data|
 
-* Draw Conclusions
+## How to Reproduce
 
-# Data Dictionary
+* Clone this repo
+* Acquire data from MySql (It should make a telco.csv after)
+* Run Notebook
 
-Features | Definition
-payment_type_id : Will drop (Duplicates payment_type)
-internet_service_type_id : Will drop (Duplicates internet_service_type_id)
-contract_type_id : Will drop (Duplicates contract_type)
-customer_id : object used as index
-gender : Customer's Gender (Male, Female)
-senior_citizen : Whether the customer is a senior citizen or not (1:Yes, 0:No)
-partner : Whether the customer has a partner or not (Yes, No)
-dependents : Whether the customer has dependents or not (Yes, No)
-tenure : Number of months customer has been with company in whole numbers
-phone_service : Whether the customer has phone_service or not (Yes, No)
-multiple_lines : Whether the customer has multiple lines or not (No phone service, No, Yes)
-online_security : OnlineSecurity: Whether the customer has online security or not (No internet service, No, Yes)
-online_backup : Whether the customer has online backup or not (No internet service, No, Yes)
-device_protection : Whether the customer has device protection or not (No internet service, No, Yes)
-tech_support : Whether the client has tech support or not (No internet service, No, Yes)
-streaming_tv : Whether the client has streaming TV or not (No internet service, No, Yes)
-streaming_movies : Whether the client has streaming movies or not (No internet service, No, Yes)
-paperless_billing : Whether the client has paperless billing or not (Yes, No)
-monthly_charges : The amount charged to the customer monthly  
-total_charges : The total amount charged to the customer
-churn : Has the customer churned (Yes, No)
-contract_type : Type of contract (One Year, Month-to-Month, Two Year)
-internet_service_type : Type of internet service the customer has (DSL, Fiber optic, No)
-payment_type : The customer's payment method (Electronic check, Mailed check, Bank transfer (automatic), Credit Card (automatic))
+## Takeaways and Conclusions
 
-# How to Reproduce
+* Most churn: No Online Security, No Online Backup, No Device Protection, No Tech Support, Month-to-Month Contract Types, Fiber Optic Internet Service Type, Electronic Check Payment Types
 
+* No significant difference in churn(per visuals): Gender, Partner, Phone Service, Multi Lines, Streaming TV or Movies, Paperless Billing, Auto Payments and Mailed Checks.
 
-# Takeaways and Conclusions
+* Logistic Regression model performed the best on the accuracy for determining churn
+
+## Recommendations
+
+* I would recommend that somehow we push customers towards getting Online Security and Backup, Tech Support, and Device Protection.
+
+* I would also recommend that customers are driven towards DSL and automatic Payments like Bank Transfer or Credit Card.
 
 
-# Recommendations
