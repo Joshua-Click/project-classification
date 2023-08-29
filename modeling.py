@@ -74,7 +74,12 @@ def plotForest(scores_df):
     plt.show()
 
 def get_knn(X_train, X_validate, y_train, y_validate):
-    ''''''
+    '''graphs the knn models
+    
+    arguments: X_train, X_validate, y_train, y_validate
+    
+    return: a matplotlib visual'''
+
     k_range = range(1, 20)
     train_scores = []
     validate_scores = []
@@ -96,6 +101,11 @@ def get_knn(X_train, X_validate, y_train, y_validate):
 
 
 def get_knn10(X_train, X_validate, y_train, y_validate):
+    '''runs the knn with 10 neighbors
+    
+    arguments: X_train, X_validate, y_train, y_validate
+    
+    return: train and validate accuracy scores'''
     knn10 =  KNeighborsClassifier(n_neighbors=10, weights='uniform')
     knn10.fit(X_train, y_train)
     print(f' Accuracy of KNN on train data is {knn10.score(X_train, y_train)}')
@@ -103,13 +113,17 @@ def get_knn10(X_train, X_validate, y_train, y_validate):
 
 
 def get_logreg(X_train, X_validate, y_train, y_validate):
+    '''runs the logistic regression model
+    
+    arguments: X_train, X_validate, y_train, y_validate
+    return: train and validate accuracy scores'''
     logit = LogisticRegression()
     logit.fit(X_train, y_train)
     print(f' Accuracy of Logistic Regression on train is {logit.score(X_train, y_train)}')
-    print(f' Accuracy of Logistic Regression on train is {logit.score(X_validate, y_validate)}')
+    print(f' Accuracy of Logistic Regression on validate is {logit.score(X_validate, y_validate)}')
 
 def get_logreg_test(X_train, X_test, y_train, y_test):
-    '''get logistic regression accuracy on train and validate data'''
+    '''get logistic regression accuracy on test data'''
 
     # create model object and fit it to the training data
     logit = LogisticRegression()
@@ -119,13 +133,24 @@ def get_logreg_test(X_train, X_test, y_train, y_test):
     print(f"Accuracy of Logistic Regression on test is {logit.score(X_test, y_test)}")
 
 def get_rf(X_train, X_validate, y_train, y_validate):
+    '''runs the random forest model for train and validate sets random state of 7
+    min samp leaf of 8 and depth of 3
+    
+    arguments: X_train, X_validate, y_train, y_validate
+    
+    return: train and validate accuracy scores'''
 
     rf = RandomForestClassifier(random_state=7, min_samples_leaf=8, max_depth=3)
     rf.fit(X_train, y_train)
     print(f' Accuracy of Random Forest on train data is {rf.score(X_train, y_train)}')
-    print(f' Accuracy of Random Forest on train data is {rf.score(X_validate, y_validate)}')
+    print(f' Accuracy of Random Forest on validate data is {rf.score(X_validate, y_validate)}')
 
 def log_to_csv(X_train, X_test, y_train, y_test):
+    '''Turns the test data set results from logistic regression into a csv
+    
+    arguments: X_train, X_test, y_train, y_test
+    
+    return: csv saved in same folder called churn_predictions.csv'''
     # Train the Logistic Regression model
     logit = LogisticRegression()
     logit.fit(X_train, y_train)
